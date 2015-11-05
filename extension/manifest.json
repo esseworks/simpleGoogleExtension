@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+
+  "name": "Havn comunication example extension",
+  "description": "Example of comunication between google chrome extension and onboarding setup",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "HAVN"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:4000/*", "*://google.com/*"],
+      "js": ["jquery-1.11.3.min.js","content_script.js"]
+    }
+  ],
+
+  "permissions": [
+    "activeTab",
+    "http://localhost:4000/*"
+  ],
+
+  "externally_connectable": {
+    "matches": ["http://localhost:4000/*"]
+  }
+}
