@@ -11,19 +11,27 @@
     "default_title": "HAVN"
   },
 
+  "background": {
+    "page": "popup.html",
+    "persistent": false
+  },
+
   "content_scripts": [
     {
-      "matches": ["http://localhost:4000/*", "*://google.com/*"],
+      "matches": ["http://*/*", "https://*/*"],
       "js": ["jquery-1.11.3.min.js","content_script.js"]
     }
   ],
 
   "permissions": [
     "activeTab",
-    "http://localhost:4000/*"
+    "tabs",
+    "management",
+    "http://localhost:4000/*",
+    "http://localhost:3000/*"
   ],
 
   "externally_connectable": {
-    "matches": ["http://localhost:4000/*"]
+    "matches": ["http://localhost:4000/*", "http://localhost:3000/*"]
   }
 }
